@@ -8,13 +8,34 @@ opened on the same day share a palette.
 
 ## Install
 
+On Ubuntu/Debian or Fedora/RHEL (including WSL):
+
 ```bash
-git clone git@github.com:elephantgerald/starship-palette.git ~/starship-palette
-~/starship-palette/install.sh   # symlinks the script and template into ~/.config
+curl -fsSL https://raw.githubusercontent.com/elephantgerald/starship-palette/main/bootstrap.sh | bash
 ```
 
-Then add `bashrc.snippet` to `~/.bashrc`. Requires `starship`, `envsubst`
-(gettext) and `awk`, plus a Nerd Font for the powerline glyphs.
+This installs `git`, `envsubst` and `curl` with your package manager (using
+`sudo`), installs [starship](https://starship.rs) with its official installer
+if it's missing, clones this repo to `~/starship-palette`, symlinks the script
+and template into `~/.config`, and adds a marked block to `~/.bashrc`. Re-running
+it updates the clone. Piping a script into bash runs whatever it contains, so
+[read `bootstrap.sh`](bootstrap.sh) first if you'd like.
+
+Prefer to do it by hand:
+
+```bash
+git clone https://github.com/elephantgerald/starship-palette.git ~/starship-palette
+~/starship-palette/install.sh
+```
+
+You also need a [Nerd Font](https://www.nerdfonts.com) for the powerline
+arrows. On WSL, install it in Windows and select it in your Windows Terminal profile.
+
+### Uninstall
+
+Delete the `# >>> starship-palette >>>` block from `~/.bashrc`, remove the
+`~/.config/starship_colors.sh` and `~/.config/starship.toml.tmpl` symlinks
+(restore any `.bak` files the installer made), and delete `~/starship-palette`.
 
 ## Overrides
 
@@ -43,3 +64,9 @@ background (FG_1 against BG_1, the brightest; FG_2 against BG_3). Hues and
 glitches stay as generated; only colors that would be hard to read get lifted.
 Without the guard, about 80% of hue/intensity combinations gave the time
 segment less than 4.5:1, and blue hues pushed FG_1 down to about 2.5:1.
+
+## License
+
+[MIT](LICENSE). This is provided as-is, with no warranty of any kind. You use it
+at your own risk, and the authors aren't liable for any damage or data loss that
+results, including from the install script changing your system or `~/.bashrc`.

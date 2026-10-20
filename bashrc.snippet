@@ -1,3 +1,4 @@
-# Add to ~/.bashrc (after bash-completion, before anything that depends on the prompt)
-source ~/.config/starship_colors.sh
-eval "$(starship init bash)"
+# >>> starship-palette >>>
+[ -f ~/.config/starship_colors.sh ] && source ~/.config/starship_colors.sh
+command -v starship >/dev/null && eval "$(starship init bash)"
+# <<< starship-palette <<<
