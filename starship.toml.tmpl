@@ -1,0 +1,42 @@
+scan_timeout = 100
+format = """
+$env_var\
+$sudo\
+$status\
+$username\
+$directory\
+$python\
+$time
+$git_branch\
+$character"""
+[env_var.PROMPT_ICON]
+format = "[ $env_value ](fg:${STARSHIP_FG_1} bg:${STARSHIP_BG_3})[\ue0b0](fg:${STARSHIP_BG_3} bg:${STARSHIP_BG_2})"
+disabled = false
+[sudo]
+format = "[ ⚡](fg:${STARSHIP_FG_1} bg:${STARSHIP_BG_2})[\ue0b0](fg:${STARSHIP_BG_2} bg:${STARSHIP_BG_1})"
+disabled = false
+[status]
+format = "[ $symbol$maybe_int ](fg:${STARSHIP_FG_1} bg:${STARSHIP_BG_1})[\ue0b0](fg:${STARSHIP_BG_1} bg:${STARSHIP_BG_3})"
+symbol = "✗"
+success_symbol = "✓"
+disabled = false
+[username]
+format = "[ $user ](fg:${STARSHIP_FG_1} bg:${STARSHIP_BG_3})[\ue0b0](fg:${STARSHIP_BG_3} bg:${STARSHIP_BG_4})"
+show_always = true
+[directory]
+format = "[ $path ](fg:${STARSHIP_FG_1} bg:${STARSHIP_BG_4})[\ue0b0](fg:${STARSHIP_BG_4} bg:${STARSHIP_BG_3})"
+truncation_length = 0
+truncate_to_repo = false
+[time]
+format = "[ \uf017 $time ](fg:${STARSHIP_FG_2} bg:${STARSHIP_BG_3})[\ue0b0](fg:${STARSHIP_BG_3} bg:none)"
+time_format = "%H:%M %:z"
+disabled = false
+[python]
+format = "[( $virtualenv) $version ](fg:${STARSHIP_FG_1} bg:${STARSHIP_BG_2})[\ue0b0](fg:${STARSHIP_BG_2} bg:${STARSHIP_BG_3})"
+[git_branch]
+format = "[ $symbol$branch ](fg:${STARSHIP_FG_1} bg:${STARSHIP_BG_4})[\ue0b0](fg:${STARSHIP_BG_4} bg:none)"
+symbol = "\ue725 "
+[character]
+format = " $symbol "
+success_symbol = "[\\$>](fg:${STARSHIP_FG_1})"
+error_symbol = "[\\$>](fg:${STARSHIP_FG_1})"
